@@ -1,0 +1,11 @@
+{% extends "registers/layout.html" %}
+
+{% block body %}
+    <h1>Course List</h1>
+    <ul>
+    {% for subject in courselist %}
+        <li><li><a href="{% url 'registers:CourseInfo' subject.course_id %}"></a>{{subject}}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock body %}    
