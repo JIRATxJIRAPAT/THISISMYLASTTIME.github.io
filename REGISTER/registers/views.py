@@ -17,7 +17,7 @@ def CourseInfo(request,course_id):
     return render(request,"registers/course_info.html",{
         "Course": info,
         "student":info.enroll.all(),
-        "non_enrollment": Student.objects.exclude(enrollment=info)
+        #"non_enrollment": Student.objects.exclude(enrollment=info)
     })
 
 

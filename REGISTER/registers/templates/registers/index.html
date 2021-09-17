@@ -4,7 +4,7 @@
     <h1>Course List</h1>
     <ul>
     {% for subject in courselist %}
-        <li><li><a href="{% url 'registers:CourseInfo' subject.course_id %}"></a>{{subject}}</li>
+        <li><a href="{% url 'registers:CourseInfo' subject.course_id %}">{{subject}}</a></li>
     {% endfor %}
     </ul>
 
