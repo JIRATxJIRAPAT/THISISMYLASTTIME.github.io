@@ -9,15 +9,27 @@
         <li>status : {{ Course.status }}</li>
     </ul>
 
-    <h2>student</h2>
+    <h2>Student</h2>
     <ul>
         {% for y in student %}
         <li>{{ y }}</li>
         {% empty %}
-        <li>No passengers</li>
+        <li>No student</li>
         {% endfor %}
     </ul>
 
-    <p><a href= "{% url 'registers:index'%}"> Course_List </a> </p>
+    <h3>Add Student</h3>
+
+    <form action"" method = "post" >
+        {% csrf_token %}
+        <select name = "enroll">
+            {% for enroll in student %}
+            <option value = "{{ enroll.id }}"> {{ enroll }}</option>
+            {% endfor %}
+        </select>
+        <input type = "submit" value = "Add Student">
+    </form>
+
+    <p><a href= "{% url 'registers:index' %}"> Course List </a> </p>
 
 {% endblock %}
