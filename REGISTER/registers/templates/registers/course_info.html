@@ -1,12 +1,12 @@
 {% extends "registers/layout.html" %}
 
 {% block body %}
-    <h1>Course: {{ Course.course_id }}</h1>
+    <h1>Course: {{ info.course_id }}</h1>
 
     <ul>
-        <li>Course : {{ Course.course_id }} {{ Course.course_name }}</li>
-        <li>max : {{ Course.limit_seat }} seats</li>
-        <li>status : {{ Course.status }}</li>
+        <li>Course : {{ info.course_id }} {{ info.course_name }}</li>
+        <li>max : {{ info.limit_seat }} seats</li>
+        <li>status : {{ info.status }}</li>
     </ul>
 
     <h2>Student</h2>
@@ -20,10 +20,10 @@
 
     <h3>Add Student</h3>
 
-    <form action"" method = "post" >
+    <form action="{% url 'registers:book' info.course_id %}" method = "post" >
         {% csrf_token %}
         <select name = "enroll">
-            {% for enroll in student %}
+            {% for enroll in non_enrollment %}
             <option value = "{{ enroll.id }}"> {{ enroll }}</option>
             {% endfor %}
         </select>
